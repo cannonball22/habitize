@@ -10,6 +10,7 @@ class Screen13 extends StatelessWidget {
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      extendBody: true,
       body: Stack(
         children: [
           Positioned(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:habitize/screens/screen_7.dart';
 
 class Screen6 extends StatelessWidget {
   const Screen6({super.key});
@@ -9,6 +10,8 @@ class Screen6 extends StatelessWidget {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      extendBody: true,
       body: Stack(
         children: [
           Positioned(
@@ -64,28 +67,21 @@ class Screen6 extends StatelessWidget {
                             borderRadius: BorderRadius.circular(45),
                           ),
                         ),
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const CircleAvatar(
+                            CircleAvatar(
                               radius: 40,
+                              backgroundImage:
+                                  AssetImage("assets/images/male.png"),
                             ),
-                            Container(
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                      "https://via.placeholder.com/50x50"),
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            ),
-                            const Text(
+                            Text(
                               'Male',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Color(0xFF464646),
-                                fontSize: 20,
+                                color: Colors.white,
+                                fontSize: 32,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w700,
                               ),
@@ -106,28 +102,21 @@ class Screen6 extends StatelessWidget {
                             borderRadius: BorderRadius.circular(45),
                           ),
                         ),
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const CircleAvatar(
+                            CircleAvatar(
                               radius: 40,
+                              backgroundImage:
+                                  AssetImage("assets/images/female.png"),
                             ),
-                            Container(
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                      "https://via.placeholder.com/50x50"),
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            ),
-                            const Text(
+                            Text(
                               'Female',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Color(0xFF464646),
-                                fontSize: 20,
+                                color: Colors.white,
+                                fontSize: 32,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w700,
                               ),
@@ -141,6 +130,37 @@ class Screen6 extends StatelessWidget {
               ],
             ),
           ),
+        ],
+      ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xff338BDC),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(90),
+              ),
+              minimumSize: const Size(90, 90),
+              padding: EdgeInsets.zero,
+            ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const Screen7(),
+                ),
+              );
+            },
+            child: const Icon(
+              Icons.arrow_forward,
+              size: 45,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(
+            height: 80,
+          )
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habitize/screens/screen_11.dart';
+import 'package:habitize/screens/screen_3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const Screen11(),
+      home: const Screen3(),
     );
   }
 }

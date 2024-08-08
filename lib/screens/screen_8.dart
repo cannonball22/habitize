@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:habitize/screens/screen_9.dart';
 
 class Screen8 extends StatelessWidget {
   const Screen8({super.key});
@@ -10,6 +11,7 @@ class Screen8 extends StatelessWidget {
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      extendBody: true,
       body: Stack(
         children: [
           Positioned(
@@ -65,6 +67,37 @@ class Screen8 extends StatelessWidget {
               ),
             ),
           ),
+        ],
+      ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xff338BDC),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(90),
+              ),
+              minimumSize: const Size(90, 90),
+              padding: EdgeInsets.zero,
+            ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => const Screen9(),
+                ),
+              );
+            },
+            child: const Icon(
+              Icons.arrow_forward,
+              size: 45,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(
+            height: 80,
+          )
         ],
       ),
     );
