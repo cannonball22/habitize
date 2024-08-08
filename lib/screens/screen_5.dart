@@ -11,12 +11,7 @@ class Screen5 extends StatefulWidget {
 
 class _Screen5State extends State<Screen5> {
   bool _showFirstWidget = true;
-
-  void _toggleWidget() {
-    setState(() {
-      _showFirstWidget = !_showFirstWidget;
-    });
-  }
+  bool _showSecondWidget = true;
 
   @override
   Widget build(BuildContext context) {
@@ -69,74 +64,171 @@ class _Screen5State extends State<Screen5> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Opacity(
-                        opacity: 0.90,
-                        child: Container(
-                          width: 140,
-                          height: 140,
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFF2A9D8E),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(45),
-                            ),
-                          ),
-                          child: const Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              CircleAvatar(
-                                radius: 26,
-                                // child: Image.asset("assets/images/male.png"),
-                                backgroundImage:
-                                    AssetImage("assets/images/male.png"),
-                              ),
-                              Text(
-                                'Male',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Color(0xFF464646),
-                                  fontSize: 20,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w700,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _showFirstWidget = !_showFirstWidget;
+                            _showSecondWidget = true;
+                          });
+                        },
+                        child: AnimatedSwitcher(
+                          duration: const Duration(seconds: 1),
+                          child: _showFirstWidget
+                              ? Opacity(
+                                  opacity: 0.90,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(48),
+                                    decoration: ShapeDecoration(
+                                      color: const Color(0xFF2A9D8E),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(45),
+                                      ),
+                                    ),
+                                    child: const Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        CircleAvatar(
+                                          radius: 26,
+                                          // child: Image.asset("assets/images/male.png"),
+                                          backgroundImage: AssetImage(
+                                              "assets/images/male.png"),
+                                        ),
+                                        Text(
+                                          'Male',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: Color(0xFF464646),
+                                            fontSize: 20,
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              : Container(
+                                  height: 250,
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 30),
+                                  decoration: ShapeDecoration(
+                                    color: const Color(0xFF2A9D8E),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(45),
+                                    ),
+                                  ),
+                                  child: const Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 40,
+                                        backgroundImage: AssetImage(
+                                            "assets/images/male.png"),
+                                      ),
+                                      SizedBox(
+                                        height: 80,
+                                      ),
+                                      Text(
+                                        'Male',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 32,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
                         ),
                       ),
-                      Opacity(
-                        opacity: 0.90,
-                        child: Container(
-                          width: 140,
-                          height: 140,
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFF2A9D8E),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(45),
-                            ),
-                          ),
-                          child: const Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              CircleAvatar(
-                                radius: 26,
-                                // child: Image.asset("assets/images/male.png"),
-                                backgroundImage:
-                                    AssetImage("assets/images/female.png"),
-                              ),
-                              Text(
-                                'Female',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Color(0xFF464646),
-                                  fontSize: 20,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w700,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _showSecondWidget = !_showSecondWidget;
+                            _showFirstWidget = true;
+                          });
+                        },
+                        child: AnimatedSwitcher(
+                          duration: const Duration(seconds: 1),
+                          child: _showSecondWidget
+                              ? Opacity(
+                                  opacity: 0.90,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(48),
+                                    decoration: ShapeDecoration(
+                                      color: const Color(0xFF2A9D8E),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(45),
+                                      ),
+                                    ),
+                                    child: const Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        CircleAvatar(
+                                          radius: 26,
+                                          // child: Image.asset("assets/images/male.png"),
+                                          backgroundImage: AssetImage(
+                                              "assets/images/female.png"),
+                                        ),
+                                        Text(
+                                          'Female',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: Color(0xFF464646),
+                                            fontSize: 20,
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              : Container(
+                                  height: 250,
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 30),
+                                  decoration: ShapeDecoration(
+                                    color: const Color(0xFF2A9D8E),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(45),
+                                    ),
+                                  ),
+                                  child: const Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 40,
+                                        backgroundImage: AssetImage(
+                                            "assets/images/female.png"),
+                                      ),
+                                      Text(
+                                        'Female',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 32,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
                         ),
                       ),
                     ],
